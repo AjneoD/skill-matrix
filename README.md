@@ -194,6 +194,6 @@ If you need inspiration for SQL Unit Testing, take a look at [Amazing Postgres](
 
 ---Final Project---
 
-Day 1 - Created DB
-Day 2 - Finished Seed
+Day 1 - Created DB (Ajneo, Xhoana, Paola)
+Day 2 - Finished Seed (3 tables by Xhoana & 3 tables by Paola)
 Day 3 - 
