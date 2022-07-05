@@ -191,3 +191,9 @@ If you need inspiration for SQL Unit Testing, take a look at [Amazing Postgres](
 [fastify]: https://www.fastify.io/
 [apollo-server]: https://www.apollographql.com/docs/apollo-server/getting-started/
 [hasura]: https://hasura.io/
+
+---Final Project---
+
+Day 1 - Created DB
+Day 2 - Finished Seed
+Day 3 - 
