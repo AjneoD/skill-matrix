@@ -15,7 +15,7 @@ $$ LANGUAGE plpgsql;
 --- BOARDS
 ---
 
-CREATE TABLE "public"."boards" (
+CREATE TABLE IF NOT EXISTS "public"."boards" (
   "id" SERIAL NOT NULL, 
   "name" TEXT NOT NULL, 
   PRIMARY KEY ("id") 
@@ -28,7 +28,7 @@ CREATE TABLE "public"."boards" (
 --- USERS
 ---
 
-CREATE TABLE "public"."users" (
+CREATE TABLE IF NOT EXISTS "public"."users" (
   "id" SERIAL NOT NULL, 
   "name" TEXT NOT NULL,
   PRIMARY KEY ("id") 
@@ -41,7 +41,7 @@ CREATE TABLE "public"."users" (
 --- BOARD ADMINS
 ---
 
-CREATE TABLE "public"."boards_admins" (
+CREATE TABLE IF NOT EXISTS "public"."boards_admins" (
   "board_id" INT NOT NULL, 
   "user_id" INT NOT NULL,
   CONSTRAINT "board_admins_pkey" PRIMARY KEY ("board_id", "user_id"),
@@ -66,7 +66,7 @@ CREATE TABLE "public"."boards_admins" (
 --- might not be performing very well at scale.
 --- Need some heavy testing.
 
-CREATE TABLE "public"."questions" (
+CREATE TABLE IF NOT EXISTS "public"."questions" (
   "id" SERIAL NOT NULL, 
   "board_id" INT NOT NULL,
   "type" TEXT NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE "public"."questions" (
 --- SURVEYS
 ---
 
-CREATE TABLE "public"."surveys" (
+CREATE TABLE IF NOT EXISTS "public"."surveys" (
   "id" SERIAL NOT NULL, 
   "board_id" INT NOT NULL,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -118,7 +118,7 @@ IS 'Trigger to set value of column "updated_at" to current timestamp on row upda
 --- immutable snapshot of the question at the time of a survey
 ---
 
--- CREATE TABLE "public"."surveys_questions" (
+-- CREATE TABLE IF NOT EXISTS "public"."surveys_questions" (
 --   "id" SERIAL NOT NULL, 
 --   "board_id" INT NOT NULL,
 --   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -138,7 +138,7 @@ IS 'Trigger to set value of column "updated_at" to current timestamp on row upda
 --- ANSWERS
 ---
 
-CREATE TABLE "public"."answers" (
+CREATE TABLE IF NOT EXISTS "public"."answers" (
   "id" BIGSERIAL NOT NULL, 
   "board_id" INT NOT NULL,
   "user_id" INT NOT NULL,
