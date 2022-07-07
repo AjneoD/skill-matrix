@@ -1,47 +1,25 @@
 import { useQuery, gql } from "../../services/hasura-client";
 import Page from "../../components/Page";
 import { Logout } from "./Logout";
+import Questions from "../questions/Questions";
 
-const PING_ACTION_QUERY = gql`
+const GET_QUESTIONS_QUERY = gql`
   query {
-    users{
-      id
-      name
-    }
-    
-    surveys {
-      id
-    }
-    
-    boards{
-      id
-      name
-    }
-
-    boards_admins{
-      board_id
-      user_id
-    }
-
     questions {
       id
       data
-    }
-
-    answers{
-      id
-      board_id
+      type
     }
   }
 `;
 
 export const App = () => {
-  const { isSuccess, data } = useQuery("PingAction", PING_ACTION_QUERY);
+  const { isSuccess, data } = useQuery("questions", GET_QUESTIONS_QUERY);
   console.log(111, "PING", isSuccess, data);
 
   return (
     <Page withPadding title={"Survey App"} actions={<Logout />}>
-      {isSuccess ? `Computer says:` : "loading time..."}
+      {isSuccess && data && <Questions questions={data} />}
     </Page>
   );
 };
