@@ -75,13 +75,13 @@ INSERT INTO "public"."questions" ("id","board_id","data","type")
 VALUES(8,8,'{"question":"Evaluate your knowledge in PHP:"}','question8');
 
 INSERT INTO "public"."questions" ("id","board_id","data","type")
-VALUES(9,9,'{"question":"Evaluate your knowledge in .NET:"}','question9');
+VALUES(9,9,'{"question":"Evaluate your knowledge in Golang:"}','question9');
 
 INSERT INTO "public"."questions" ("id","board_id","data","type")
-VALUES(10,10,'{"question":"Evaluate your knowledge in .NET:"}','question10');
+VALUES(10,10,'{"question":"Evaluate your knowledge in Ruby:"}','question10');
 
 INSERT INTO "public"."questions" ("id","board_id","data","type")
-VALUES(11,11,'{"question":"Evaluate your knowledge in .NET:"}','question11');
+VALUES(11,11,'{"question":"Evaluate your knowledge in Python:"}','question11');
 
 INSERT INTO "public"."questions" ("id","board_id","data","type")
 VALUES(12,12,'{"question":"Evaluate your knowledge in .NET:"}','question12');
@@ -104,7 +104,7 @@ VALUES (17,17, '{"question" : "Evaluate your knowldege in Python:"}', 'question1
 INSERT INTO "public"."questions"("id", "board_id", "data", "type")
 VALUES (18,18, '{"question" : "Evaluate your knowledge in GraphQL:" }', 'question18');
 
------------------------------------------------------------------------------------------
+
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(1,1,1,1,10,'{"option1":"0-Zero",
@@ -125,7 +125,7 @@ VALUES(2,2,2,2,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(3,3,3,3,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
@@ -133,7 +133,7 @@ VALUES(3,3,3,3,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(4,4,4,4,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
@@ -141,7 +141,7 @@ VALUES(4,4,4,4,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(5,5,5,5,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
@@ -149,7 +149,7 @@ VALUES(5,5,5,5,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(6,6,6,6,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
@@ -157,7 +157,7 @@ VALUES(6,6,6,6,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(7,7,7,7,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
@@ -165,7 +165,7 @@ VALUES(7,7,7,7,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(8,8,8,8,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
@@ -173,14 +173,14 @@ VALUES(8,8,8,8,10,'{"option1":"0-Zero",
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(9,9,9,9,10,'{"option1":"0-Zero",
-"option2":"1-I can "read" it and orient myself in a file / project",
+"option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
 "option6":"5-I know it in all its nuances and I feel calm"}');
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
-VALUES(10,10,10,10,10,10,'{"option1":"0-Zero",
+VALUES(10,10,10,10,10,'{"option1":"0-Zero",
 "option2":"1-I can read it and orient myself in a file / project",
 "opsion3":"2-I can work on a file / project", 
 "option4":"3-I can use it even in more complex projects", 
@@ -258,3 +258,4 @@ VALUES(18,18,18,18,10,'{"option1":"0-Zero",
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
 "option6":"5-I know it in all its nuances and I feel calm"}');
+
