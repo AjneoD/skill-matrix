@@ -9,8 +9,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-
-
 ---
 --- BOARDS
 ---
@@ -21,9 +19,6 @@ CREATE TABLE IF NOT EXISTS "public"."boards" (
   PRIMARY KEY ("id") 
 );
 
-
-
-
 ---
 --- USERS
 ---
@@ -33,9 +28,6 @@ CREATE TABLE IF NOT EXISTS "public"."users" (
   "name" TEXT NOT NULL,
   PRIMARY KEY ("id") 
 );
-
-
-
 
 ---
 --- BOARD ADMINS
@@ -48,9 +40,6 @@ CREATE TABLE IF NOT EXISTS "public"."boards_admins" (
   CONSTRAINT "boards_admins_board_id_fkey" FOREIGN KEY("board_id") REFERENCES "boards"("id"),
   CONSTRAINT "boards_admins_user_id_fkey" FOREIGN KEY("user_id") REFERENCES "users"("id")
 );
-
-
-
 
 ---
 --- QUESTIONS
@@ -77,12 +66,6 @@ CREATE TABLE IF NOT EXISTS "public"."questions" (
   CONSTRAINT "questions_board_id_fkey" FOREIGN KEY("board_id") REFERENCES "boards"("id")
 ) WITH (fillfactor = 100);
 
-
-
-
-
-
-
 ---
 --- SURVEYS
 ---
@@ -106,13 +89,6 @@ EXECUTE PROCEDURE "public"."set_current_timestamp_updated_at"();
 COMMENT ON TRIGGER "set_public_surveys_updated_at" ON "public"."surveys" 
 IS 'Trigger to set value of column "updated_at" to current timestamp on row update';
 
-
-
-
-
-
-
-
 ---
 --- SURVEYS QUESTIONS
 --- immutable snapshot of the question at the time of a survey
@@ -128,11 +104,6 @@ IS 'Trigger to set value of column "updated_at" to current timestamp on row upda
 --   CONSTRAINT "surveys_pkey" PRIMARY KEY ("id"),
 --   CONSTRAINT "surveys_board_id_fkey" FOREIGN KEY("board_id") REFERENCES "boards"("id")
 -- );
-
-
-
-
-
 
 ---
 --- ANSWERS
