@@ -211,13 +211,7 @@ VALUES(13,13,13,13,10,'{"option1":"0-Zero",
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
 "option6":"5-I know it in all its nuances and I feel calm"}');
 
-INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
-VALUES(14,14,14,14,10,'{"option1":"0-Zero",
-"option2":"1-I can read it and orient myself in a file / project",
-"opsion3":"2-I can work on a file / project", 
-"option4":"3-I can use it even in more complex projects", 
-"option5":"4-I have advanced knowledge, I could teach it to someone else",
-"option6":"5-I know it in all its nuances and I feel calm"}');
+
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(14,14,14,14,10,'{"option1":"0-Zero",
