@@ -4,9 +4,9 @@ import Form from "./Form";
 export default function Questions({ questions }) {
   return (
     <div>
-      <h3>Questions</h3>
+      <h3 align="center">Questions</h3>
       {questions?.questions &&
-        questions.questions.map((item) => <Form {...item} />)}
+        questions.questions.map((item) => <Form data={item} />)}
     </div>
   );
 }

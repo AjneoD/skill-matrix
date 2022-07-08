@@ -6,16 +6,16 @@ import Questions from "../questions/Questions";
 const GET_QUESTIONS_QUERY = gql`
   query {
     questions {
-      id
-      data
-      type
+      id,
+      type,
+      data,
     }
   }
 `;
 
 export const App = () => {
   const { isSuccess, data } = useQuery("questions", GET_QUESTIONS_QUERY);
-  console.log(111, "PING", isSuccess, data);
+  console.log(111, "PING",  data);
 
   return (
     <Page withPadding title={"Survey App"} actions={<Logout />}>
