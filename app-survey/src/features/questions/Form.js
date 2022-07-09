@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useQuery, gql } from "../../services/hasura-client";
 import { useMutation } from "react-query";
+import {
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio
+} from "@mui/material";
+
 
 const Center = styled.div`
   text-align:center;
-  background: #E0EAFC;
+  background: #F2F2F2;
   padding: 10px;
   border-radius: 16px;
   margin-bottom: 16px;
@@ -26,9 +34,9 @@ const Button = styled.input`
   padding: 8px;
   margin-left: 10px;
   width: 10%;
-  background-color: #4caf50;
+  background-color: #1c92d2;
   color: white;
-  margin: 8px 0;
+  margin-top: 34%;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -62,12 +70,35 @@ export default function Form(props) {
     <Center>
       {console.log("data", props.data)}
       <Title>Q: {props.data?.data?.question}</Title>
-      <input
-        placeholder="Enter answer.."
-        value={answer}
-        onChange={(e) => setAnswer(e.target.value)}
-      />
+     
+        
+        <FormControl>
+        <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
+        <RadioGroup
+          aria-labelledby="demo-radio-buttons-group-label"
+          defaultValue="female"
+          name="radio-buttons-group"
+        >
+          <FormControlLabel value="0" control={<Radio />} label="0 = Zero" />
+          <FormControlLabel value="1" control={<Radio />} label="1 = I can read it and orient myself in a file / project" />
+          <FormControlLabel value="2" control={<Radio />} label="2 = I can work on a file / project" />
+          <FormControlLabel value="3" control={<Radio />} label="3 = I can use it even in more complex projects" />
+          <FormControlLabel value="4" control={<Radio />} label="4 = I have advanced knowledge, I could teach it to someone else" />
+          <FormControlLabel value="5" control={<Radio />} label="5 = I know it in all its nuances and I feel calm" />
+        </RadioGroup>
+    
+       
+        {/* value={answer}
+        onChange={(e) => setAnswer(e.target.value)} */}
+        </FormControl>
+      
+       
+
+
       <Button type="button" value="save" onClick={onSubmit} />
+    
     </Center>
+
+    
   );
 }

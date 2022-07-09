@@ -25,10 +25,6 @@ export const App = () => {
 };
 
 /* 
-import { useQuery, gql } from "../../services/hasura-client";
-import Page from "../../components/Page";
-import { Logout } from "./Logout";
-
 import {  Route, Routes } from "react-router-dom";
 import { Survey } from "../../components/Page/Survey";
 
