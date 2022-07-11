@@ -16,7 +16,7 @@ const Center = styled.div`
   background: #F2F2F2;
   padding: 10px;
   border-radius: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 59px;
   box-shadow: 5px 10px 18px #888888;
   margin-top:23px;
   width:55%;
@@ -38,7 +38,7 @@ const Button = styled.input`
   color: white;
   margin-top: 34%;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
   cursor: pointer;
 `;
 
@@ -67,6 +67,7 @@ export default function Form(props) {
   };
 
   return (
+    <div>
     <Center>
       {console.log("data", props.data)}
       <Title>Q: {props.data?.data?.question}</Title>
@@ -93,12 +94,11 @@ export default function Form(props) {
         </FormControl>
       
        
-
-
-      <Button type="button" value="save" onClick={onSubmit} />
+      <Button type="button" value="Save" onClick={onSubmit} />
     
     </Center>
-
     
+  </div>
   );
+ 
 }

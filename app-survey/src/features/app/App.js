@@ -25,17 +25,7 @@ export const App = () => {
 };
 
 /* 
-import {  Route, Routes } from "react-router-dom";
-import { Survey } from "../../components/Page/Survey";
 
-const PING_ACTION_QUERY = gql`
-  query MyQuery {
-    questions {
-      data,
-      type
-    }
-  }
-`;
 
 const query = gql`
 query MyQuery1 {
