@@ -10,16 +10,17 @@ import {
   Radio
 } from "@mui/material";
 
+
 const Center = styled.div`
   text-align: center;
   background: #f2f2f2;
   padding: 10px;
   border-radius: 16px;
   margin-bottom: 59px;
-  box-shadow: 5px 10px 18px #888888;
+  box-shadow: 8px 10px 20px #888888;
   margin-top: 23px;
-  width: 55%;
-  margin-left: 25%;
+  width: 110%;
+  margin-left: -6%;
 `;
 
 const Title = styled.h1`
@@ -30,11 +31,11 @@ const Title = styled.h1`
 
 const Button = styled.input`
   padding: 8px;
-  margin-left: 10px;
-  width: 10%;
+  margin-left: 76%;
+  width: 13%;
   background-color: #1c92d2;
   color: white;
-  margin-top: 34%;
+  margin-top: 1%;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -54,13 +55,14 @@ export default function Form(props) {
   const [answer, setAnswer] = useState("");
   // const [addAnswer] = useMutation(POST_ANSWER_MUTATION);
 
-  const onSubmit = () => {
-    console.log({
-      ques: props.data?.data?.question,
-      ans: answer
-    });
+  console.log(111, "Selected answer: ", answer);
 
+  const onSubmit = () => {
     // addAnswer();
+  };
+
+  const handleInputChange = (e) => {
+    setAnswer(e.target.value);
   };
 
   return (
@@ -73,8 +75,8 @@ export default function Form(props) {
           <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
             name="radio-buttons-group"
+            onChange={handleInputChange}
           >
             <FormControlLabel value="0" control={<Radio />} label="0 = Zero" />
             <FormControlLabel
@@ -103,12 +105,9 @@ export default function Form(props) {
               label="5 = I know it in all its nuances and I feel calm"
             />
           </RadioGroup>
-
-          {/* value={answer}
-        onChange={(e) => setAnswer(e.target.value)} */}
         </FormControl>
 
-        <Button type="button" value="Next" onClick={onSubmit} />
+        <Button type="button" value="Save" onClick={onSubmit} />
       </Center>
     </div>
   );

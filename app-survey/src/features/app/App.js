@@ -1,25 +1,45 @@
-import { useQuery, gql } from "../../services/hasura-client";
 import Page from "../../components/Page";
 import { Logout } from "./Logout";
 import Questions from "../questions/Questions";
+import { Routes, Route } from "react-router-dom";
+import styled from "styled-components";
 
-const GET_QUESTIONS_QUERY = gql`
-  query {
-    questions {
-      id,
-      type,
-      data,
-    }
-  }
+const Start = styled.input`
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #1c92d2;
+  padding: 8px 30px;
+  color: white;
+  margin-top: 14%;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  width:22%;
+  font-weight:bold;
 `;
+export const App = () => (
+  <Routes>
+    <Route path="/" element={<Home />} exact />
+    <Route path="/page/:id" element={<Questions />} />
+  </Routes>
+);
 
-export const App = () => {
-  const { isSuccess, data } = useQuery("questions", GET_QUESTIONS_QUERY);
-  console.log(111, "PING",  data);
+export const Home = () => {
+  const onEnter = () => {
+    window.location.pathname = "/page/1";
+  };
 
   return (
     <Page withPadding title={"Survey App"} actions={<Logout />}>
-      {isSuccess && data && <Questions questions={data} />}
+      <Start
+        id="start"
+        type="submit"
+        value="Start"
+        name="Start"
+        onClick={onEnter}
+      />
     </Page>
   );
 };
