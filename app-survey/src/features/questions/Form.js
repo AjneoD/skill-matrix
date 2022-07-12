@@ -10,18 +10,16 @@ import {
   Radio
 } from "@mui/material";
 
-
 const Center = styled.div`
-  text-align:center;
-  background: #F2F2F2;
+  text-align: center;
+  background: #f2f2f2;
   padding: 10px;
   border-radius: 16px;
   margin-bottom: 59px;
   box-shadow: 5px 10px 18px #888888;
-  margin-top:23px;
-  width:55%;
-  margin-left:25%;
-  
+  margin-top: 23px;
+  width: 55%;
+  margin-left: 25%;
 `;
 
 const Title = styled.h1`
@@ -41,7 +39,6 @@ const Button = styled.input`
   border-radius: 15px;
   cursor: pointer;
 `;
-
 
 const POST_ANSWER_MUTATION = gql`
 mutation () { 
@@ -68,37 +65,51 @@ export default function Form(props) {
 
   return (
     <div>
-    <Center>
-      {console.log("data", props.data)}
-      <Title>Q: {props.data?.data?.question}</Title>
-     
-        
+      <Center>
+        {console.log("data", props.data)}
+        <Title>Q: {props.data?.data?.question}</Title>
+
         <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          defaultValue="female"
-          name="radio-buttons-group"
-        >
-          <FormControlLabel value="0" control={<Radio />} label="0 = Zero" />
-          <FormControlLabel value="1" control={<Radio />} label="1 = I can read it and orient myself in a file / project" />
-          <FormControlLabel value="2" control={<Radio />} label="2 = I can work on a file / project" />
-          <FormControlLabel value="3" control={<Radio />} label="3 = I can use it even in more complex projects" />
-          <FormControlLabel value="4" control={<Radio />} label="4 = I have advanced knowledge, I could teach it to someone else" />
-          <FormControlLabel value="5" control={<Radio />} label="5 = I know it in all its nuances and I feel calm" />
-        </RadioGroup>
-    
-       
-        {/* value={answer}
+          <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="female"
+            name="radio-buttons-group"
+          >
+            <FormControlLabel value="0" control={<Radio />} label="0 = Zero" />
+            <FormControlLabel
+              value="1"
+              control={<Radio />}
+              label="1 = I can read it and orient myself in a file / project"
+            />
+            <FormControlLabel
+              value="2"
+              control={<Radio />}
+              label="2 = I can work on a file / project"
+            />
+            <FormControlLabel
+              value="3"
+              control={<Radio />}
+              label="3 = I can use it even in more complex projects"
+            />
+            <FormControlLabel
+              value="4"
+              control={<Radio />}
+              label="4 = I have advanced knowledge, I could teach it to someone else"
+            />
+            <FormControlLabel
+              value="5"
+              control={<Radio />}
+              label="5 = I know it in all its nuances and I feel calm"
+            />
+          </RadioGroup>
+
+          {/* value={answer}
         onChange={(e) => setAnswer(e.target.value)} */}
         </FormControl>
-      
-       
-      <Button type="button" value="Save" onClick={onSubmit} />
-    
-    </Center>
-    
-  </div>
+
+        <Button type="button" value="Next" onClick={onSubmit} />
+      </Center>
+    </div>
   );
- 
 }

@@ -104,7 +104,26 @@ VALUES (17,17, '{"question" : "Evaluate your knowldege in Python:"}', 'question1
 INSERT INTO "public"."questions"("id", "board_id", "data", "type")
 VALUES (18,18, '{"question" : "Evaluate your knowledge in GraphQL:" }', 'question18');
 
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (19,19, '{"question":"What is the correct way to create a function in Python:"}','question19');
 
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (20,20,'{"question":"Which one of these variables has an illegal name:"}','question20');
+
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (21,21,'{"question":"What is the default local host port that a React development server uses"}','question21');
+
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (22,22,'{"question":"What is Callback: "}','question22');
+
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (23,23,'{"question":"What is true about @Autowired annotation:"}','question23');
+
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (24,24,'{"question":"What is Spring Boot:"}', 'question24');
+
+INSERT INTO "public"."questions"("id", "board_id", "data", "type")
+VALUES (25,25,'{"question":"What are CRUD Operations:"}','question25');
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(1,1,1,1,10,'{"option1":"0-Zero",
@@ -121,7 +140,6 @@ VALUES(2,2,2,2,10,'{"option1":"0-Zero",
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
 "option6":"5-I know it in all its nuances and I feel calm"}');
-
 
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(3,3,3,3,10,'{"option1":"0-Zero",
@@ -211,8 +229,6 @@ VALUES(13,13,13,13,10,'{"option1":"0-Zero",
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
 "option6":"5-I know it in all its nuances and I feel calm"}');
 
-
-
 INSERT INTO "public"."answers"("id","board_id","user_id","question_id","score","data")
 VALUES(14,14,14,14,10,'{"option1":"0-Zero",
 "option2":"1-I can read it and orient myself in a file / project",
@@ -252,4 +268,35 @@ VALUES(18,18,18,18,10,'{"option1":"0-Zero",
 "option4":"3-I can use it even in more complex projects", 
 "option5":"4-I have advanced knowledge, I could teach it to someone else",
 "option6":"5-I know it in all its nuances and I feel calm"}');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(19,19,19,19,10,'{"option1":"def myFunction()", 
+"option2":"function myfunction()", "option3":"create myFunction()"}');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(20,20,20,20,10, '{"option1" : "$myVar", "option2" : "$my_Var", "option3" : "$my-Var"}');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(21,21,21,21,10, '{"option1" : "3000", "option2" : "8080" , "option3" : "5000", "option4" : "3500"}');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(22,22,22,22,10, '{"option1" : "Callback is an asynchronous equivalent for a function",
+"option2" : "Callback is a technique in which a method calls back the caller method", 
+"option3" : "Both of the above", "option4" : "None of the above" }');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(23,23,23,23,10, '{"option1" : "The @Autowired annotation can be used to autowire bean on the setter method",
+"option2" : "This annotation provides more fine-grained control over where and how autowiring should be accomplished",
+"option3" : "The @Autowired annotation can be used to autowire bean on the methods with arbitary and/or multiple arguments", 
+"option4" : "All of the above"}');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(24,24,24,24,10 , '{"option1" : "Java Framework", "option2" : "PHP Framework",
+"option3" : "JavaScript Framework"}');
+
+INSERT INTO "public"."answers"("id", "board_id", "user_id", "question_id", "score", "data")
+VALUES(25,25,25,25,10 , '{"option1" : "Create", "option2" : "Read", 
+"option3" : "Update" , "option4" : "Delete" , "option5" : "All of the above"}');
+
+
 
