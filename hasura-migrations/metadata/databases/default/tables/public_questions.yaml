@@ -1,0 +1,46 @@
+table:
+  name: questions
+  schema: public
+object_relationships:
+  - name: board
+    using:
+      foreign_key_constraint_on: board_id
+insert_permissions:
+  - role: form
+    permission:
+      check: {}
+      columns:
+        - is_deleted
+        - board_id
+        - id
+        - data
+        - type
+        - created_at
+select_permissions:
+  - role: form
+    permission:
+      columns:
+        - is_deleted
+        - board_id
+        - id
+        - data
+        - type
+        - created_at
+      filter: {}
+update_permissions:
+  - role: form
+    permission:
+      columns:
+        - is_deleted
+        - board_id
+        - id
+        - data
+        - type
+        - created_at
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: form
+    permission:
+      backend_only: false
+      filter: {}
