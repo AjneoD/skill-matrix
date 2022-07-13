@@ -10,7 +10,6 @@ import {
   Radio
 } from "@mui/material";
 
-
 const Center = styled.div`
   text-align: center;
   background: #f2f2f2;
@@ -33,7 +32,7 @@ const Button = styled.input`
   padding: 8px;
   margin-left: 76%;
   width: 13%;
-  background-color: #1c92d2;
+  background-color: ${(props) => (props.disabled ? "gray" : "#1c92d2")};
   color: white;
   margin-top: 1%;
   border: none;
@@ -54,15 +53,36 @@ mutation () {
 export default function Form(props) {
   const [answer, setAnswer] = useState("");
   // const [addAnswer] = useMutation(POST_ANSWER_MUTATION);
+  const [isDisabled, setIsDisabled] = useState(false);
 
-  console.log(111, "Selected answer: ", answer);
+  console.log(111, "Selected answer: ", answer, answer != "");
 
   const onSubmit = () => {
     // addAnswer();
+    storeAnswerLocalStorage(props.data.id, answer);
+    setIsDisabled(true);
   };
 
   const handleInputChange = (e) => {
-    setAnswer(e.target.value);
+    if (!isDisabled) {
+      setAnswer(e.target.value);
+    }
+  };
+
+  const storeAnswerLocalStorage = (questionId, questionPoints) => {
+    // Get current LS Data & add to end of it
+    let current = JSON.parse(localStorage.getItem("points"));
+    console.log(111, "Points", current);
+
+    if (current) {
+      current.push({ questionId, questionPoints });
+      localStorage.setItem("points", JSON.stringify(current));
+    } else {
+      localStorage.setItem(
+        "points",
+        JSON.stringify([{ questionId, questionPoints }])
+      );
+    }
   };
 
   return (
@@ -77,6 +97,7 @@ export default function Form(props) {
             aria-labelledby="demo-radio-buttons-group-label"
             name="radio-buttons-group"
             onChange={handleInputChange}
+            value={answer}
           >
             <FormControlLabel value="0" control={<Radio />} label="0 = Zero" />
             <FormControlLabel
@@ -107,7 +128,12 @@ export default function Form(props) {
           </RadioGroup>
         </FormControl>
 
-        <Button type="button" value="Save" onClick={onSubmit} />
+        <Button
+          type="button"
+          value="Save"
+          onClick={onSubmit}
+          disabled={isDisabled}
+        />
       </Center>
     </div>
   );

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "../../services/hasura-client";
 import Form from "./Form";
-import { Box,Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import styled from "styled-components";
-
-
 
 const GET_QUESTIONS_QUERY = gql`
   query {
@@ -23,6 +21,8 @@ export default function Questions({ questions }) {
       window.location.pathname.split("/").length - 1
     ];
   const { isSuccess, data } = useQuery("questions", GET_QUESTIONS_QUERY);
+  const [end, setEnd] = useState(false);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     if (data && data.questions && page) {
@@ -32,6 +32,13 @@ export default function Questions({ questions }) {
             pos >= parseInt(page - 1) * 7 && pos < parseInt(page - 1) * 7 + 7
         )
       );
+    }
+
+    if (data && data.questions) {
+      if (page * 7 > data.questions.length) {
+        setEnd(true);
+        calculateTotal();
+      }
     }
   }, [data, page]);
 
@@ -48,9 +55,28 @@ export default function Questions({ questions }) {
     window.location.pathname = "/";
   };
 
+  const calculateTotal = () => {
+    const points = JSON.parse(localStorage.getItem("points"));
+    if (points) {
+      let totalPoints = 0;
+
+      points.map((i) => {
+        totalPoints += parseInt(i.questionPoints);
+      });
+
+      setTotal(totalPoints);
+    }
+  };
+
   return (
     <Box>
       <h3 align="center">Questions</h3>
+      {end && (
+        <div>
+          <h4 style={{ textAlign: "center" }}>Finished!</h4>
+          <h3>You got {total} points!</h3>
+        </div>
+      )}
       <Box>
         {isSuccess && data && data.questions && list.length > 0
           ? list.map((item) => <Form data={item} />)
@@ -59,23 +85,16 @@ export default function Questions({ questions }) {
       <Box
         sx={{
           display: "flex",
-          height:"100px",
+          height: "100px",
           flexDirection: "row",
           justifyContent: "space-between",
-          borderRadius: 1,
-          
-
+          borderRadius: 1
         }}
       >
-        {isSuccess && <Button  onClick={onPrevious} >Previous</Button>}
-     
-        {isSuccess && (
-          
-          <Button  onClick={onSubmit} >Next</Button>
-        )}
+        {isSuccess && !end && <Button onClick={onPrevious}>Previous</Button>}
+
+        {isSuccess && !end && <Button onClick={onSubmit}>Next</Button>}
       </Box>
-        
-      
     </Box>
   );
 }
