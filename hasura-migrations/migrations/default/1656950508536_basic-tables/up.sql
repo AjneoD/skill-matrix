@@ -110,7 +110,7 @@ IS 'Trigger to set value of column "updated_at" to current timestamp on row upda
 ---
 
 CREATE TABLE IF NOT EXISTS "public"."answers" (
-  "id" BIGSERIAL NOT NULL, 
+  "id" BIGSERIAL, 
   "board_id" INT NOT NULL,
   "user_id" INT NOT NULL,
   "question_id" INT NOT NULL,
