@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Page from "../../components/Page";
 import { Logout } from "./Logout";
 import Questions from "../questions/Questions";
@@ -16,8 +17,8 @@ const Start = styled.input`
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  width:22%;
-  font-weight:bold;
+  width: 22%;
+  font-weight: bold;
 `;
 export const App = () => (
   <Routes>
@@ -30,6 +31,10 @@ export const Home = () => {
   const onEnter = () => {
     window.location.pathname = "/page/1";
   };
+
+  useEffect(() => {
+    localStorage.setItem("points", "[]");
+  }, []);
 
   return (
     <Page withPadding title={"Survey App"} actions={<Logout />}>
