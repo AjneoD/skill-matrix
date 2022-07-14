@@ -52,13 +52,13 @@ mutation () {
 
 export default function Form(props) {
   const [answer, setAnswer] = useState("");
-  // const [addAnswer] = useMutation(POST_ANSWER_MUTATION);
+
   const [isDisabled, setIsDisabled] = useState(false);
 
   console.log(111, "Selected answer: ", answer, answer != "");
 
   const onSubmit = () => {
-    // addAnswer();
+   
     storeAnswerLocalStorage(props.data.id, answer);
     setIsDisabled(true);
   };
@@ -128,6 +128,8 @@ export default function Form(props) {
           </RadioGroup>
         </FormControl>
 
+
+     
         <Button
           type="button"
           value="Save"
